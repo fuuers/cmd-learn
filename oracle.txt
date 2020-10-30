@@ -1,0 +1,12 @@
+创建用户
+create user USER_NAME identified by PASSWORD default tablespace users;
+
+赋予权限
+grant connect,resource,dba to USER_NAME;
+
+修改密码
+alter user USER_NAME identified by PASSWORD;
+
+导出
+exp userid=USER_NAME/PASSWORD@SERVER file=bak.dmp owner=(OWNER) rows=n
+(rows=n):表示不抽数据
