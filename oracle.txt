@@ -3,6 +3,8 @@ create user USER_NAME identified by PASSWORD default tablespace users;
 
 赋予权限
 grant connect,resource,dba to USER_NAME;
+grant select any table to USER_NAME;
+grant create any view to USER_NAME;
 
 修改密码
 alter user USER_NAME identified by PASSWORD;
@@ -10,3 +12,6 @@ alter user USER_NAME identified by PASSWORD;
 导出
 exp userid=USER_NAME/PASSWORD@SERVER file=bak.dmp owner=(OWNER) rows=n
 (rows=n):表示不抽数据
+
+导入
+imp USER_NAME/PASSWORD@SERVER file=bak.dmp full=y ignore=y;
