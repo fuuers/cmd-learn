@@ -15,3 +15,8 @@ exp userid=USER_NAME/PASSWORD@SERVER file=bak.dmp owner=(OWNER) rows=n
 
 导入
 imp USER_NAME/PASSWORD@SERVER file=bak.dmp full=y ignore=y;
+
+列转行
+pivot
+select * from (select a,b,c from table where 1=1) t
+	pivot(max(t.c) for t.b in('value1' as column1,'value2' as column2,))
